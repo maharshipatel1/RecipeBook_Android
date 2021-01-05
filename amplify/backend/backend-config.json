@@ -1,0 +1,10 @@
+{
+  "storage": {
+    "Recipes": {
+      "service": "DynamoDB",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  }
+}
