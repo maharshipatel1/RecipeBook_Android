@@ -1,6 +1,7 @@
 package com.application.recipebook.ui.shopping;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.recipebook.Ingredient;
+import com.application.recipebook.MainActivity;
 import com.application.recipebook.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -77,10 +84,9 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         }
     }
 
-    // Returns the total count of items in the list
     @Override
     public int getItemCount() {
-        return ingredients.size();
+        return MainActivity.getIngredientList().getIngredients().size();
     }
 
 }

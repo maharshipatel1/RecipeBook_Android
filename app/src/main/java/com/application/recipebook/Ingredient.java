@@ -28,4 +28,6 @@ public class Ingredient {
     public void setValue(boolean value){
         this.value = value;
     }
+
+
 }

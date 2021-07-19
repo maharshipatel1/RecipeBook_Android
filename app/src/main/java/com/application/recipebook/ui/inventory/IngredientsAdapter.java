@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,9 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.application.recipebook.Ingredient;
 import com.application.recipebook.R;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.ViewHolder> {
 
@@ -77,6 +76,20 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         else{
             checkBox.setChecked(false);
         }
+
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    ingredients.get(position).setValue(true);
+                }
+                else {
+                    ingredients.get(position).setValue(false);
+                }
+            }
+
+        });
     }
 
     // Returns the total count of items in the list
