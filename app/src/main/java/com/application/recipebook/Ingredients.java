@@ -3,6 +3,9 @@ package com.application.recipebook;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The ingredients class for implementing each ingredient in the list
+ */
 public class Ingredients {
 
     private List<Ingredient> ingredients;
@@ -16,6 +19,7 @@ public class Ingredients {
         return ingredients;
     }
 
+    // The setter method for setting each element in the ingredients list
     public void setIngredients(){
         ingredients.add(0, new Ingredient("Tomatoes", false));
         ingredients.add(1,new Ingredient("Onions", false));

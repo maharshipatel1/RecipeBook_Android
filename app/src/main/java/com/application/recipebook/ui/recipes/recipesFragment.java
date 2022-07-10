@@ -22,12 +22,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-//import com.google.android.gms.ads.AdRequest;
-//import com.google.android.gms.ads.AdView;
 
+/**
+ * This class represents the Recipes UI
+ */
 public class recipesFragment extends Fragment {
 
-    //private AdView mAdView;
     private RecyclerView rvRecipes;
     private List<Recipe> recipes = new ArrayList<Recipe>();
 
@@ -41,12 +41,9 @@ public class recipesFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        /*mAdView = getView().findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
     }
 
+    // This method gets all the recipes from the database
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
@@ -55,6 +52,7 @@ public class recipesFragment extends Fragment {
         basicRead(getIngredients(), view);
     }
 
+    // A custom algorithm to match the ingredients of the user to that of the recipe in the database
     public String getIngredients() {
         List<String> temp = new ArrayList<String>();
         String result = "";
@@ -81,6 +79,7 @@ public class recipesFragment extends Fragment {
         return result;
     }
 
+    // The main method that reads the recipes from the Google Firebase Database
     public void basicRead(String ingredientsAvailable, View view) {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();

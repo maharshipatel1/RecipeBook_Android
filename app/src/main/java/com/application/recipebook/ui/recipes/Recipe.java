@@ -2,6 +2,9 @@ package com.application.recipebook.ui.recipes;
 
 import java.io.Serializable;
 
+/**
+ * The Recipe class which stores the details of each recipe
+ */
 public class Recipe implements Serializable {
 
     private String name;

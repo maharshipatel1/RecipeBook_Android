@@ -1,5 +1,8 @@
 package com.application.recipebook;
 
+/**
+ * The Ingredient class to represent an ingredient object
+ */
 public class Ingredient {
     private String name;
     private boolean value;

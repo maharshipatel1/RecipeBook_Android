@@ -21,12 +21,9 @@ import com.application.recipebook.ui.recipes.recipesFragment;
 import com.application.recipebook.ui.shopping.shoppingFragment;
 import com.google.android.material.navigation.NavigationView;
 
-//import com.google.android.gms.ads.MobileAds;
-//import com.google.android.gms.ads.initialization.InitializationStatus;
-//import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
-
-
+/**
+ * The main activity for implementing the main logic of the application
+ */
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
@@ -40,21 +37,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        */
-
+        // The ingredients list which is shared between all activities
         ingredientList = new Ingredients();
 
+        // The toolbar of the main application
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // The drawer object to implement the drawer
         nvDrawer = (NavigationView) findViewById(R.id.nav_view);
         setupDrawerContent(nvDrawer);
 
@@ -66,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawer.addDrawerListener(drawerToggle);
 
+        // Fragments are used to implement different views such as the recipes, ingredients, etc.
         Fragment newFragment = null;
         try {
             newFragment = (Fragment) (inventoryFragment.class).newInstance();
@@ -82,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
 
+    // This method sets up the drawer content
     private void setupDrawerContent(NavigationView navigationView){
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -92,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    // This method implements the options in the entire application
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -99,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Opening an fragment for each drawer item
     public void selectDrawerItem(MenuItem menuItem){
         Fragment fragment = null;
         Class fragmentClass;
@@ -132,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawer.closeDrawers();
     }
 
+    // Implementing the logic for each options selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -179,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
+    // This method gets the ingredients list from all other files and activities
     public static Ingredients getIngredientList(){
         System.out.println("GetIngredientsList Method");
         return ingredientList;

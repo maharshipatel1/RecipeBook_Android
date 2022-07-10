@@ -11,6 +11,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.InputStream;
 
+/**
+ * This module is used to connect to the Google Firebase APIs
+ */
 @GlideModule
 public class MyAppGlideModule extends AppGlideModule {
 

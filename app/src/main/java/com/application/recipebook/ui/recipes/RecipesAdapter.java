@@ -18,24 +18,23 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
-
+/**
+ * The recipes adapter class to implement the UI of each recipe element
+ */
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHolder> {
 
     private List<Recipe> recipes;
     private RequestManager glide;
     private Context context;
 
+    // This method initializes the members of the recipe element
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // Your holder should contain a member variable
-        // for any view that will be set as you render a row
+
         public TextView nameTextView;
         public ImageView image;
 
-        // We also create a constructor that accepts the entire item row
-        // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
-            // Stores the itemView in a public final member variable that can be used
-            // to access the context from any ViewHolder instance.
+
             super(itemView);
 
             nameTextView = (TextView) itemView.findViewById(R.id.recipe_name);
@@ -54,7 +53,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     }
 
 
-
+    // This method is used to inflate the UI element
     @Override
     public RecipesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
@@ -68,6 +67,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         return viewHolder;
     }
 
+    // This method initializes the connection to the databases
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 

@@ -18,11 +18,13 @@ import com.application.recipebook.ui.inventory.IngredientsAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The fragment class for the shopping UI
+ */
 public class shoppingFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private List<Ingredient> ingredients;
     private RecyclerView rvIngredients;
-    //private AdView mAdView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -34,12 +36,9 @@ public class shoppingFragment extends Fragment implements AdapterView.OnItemSele
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        /*mAdView = getView().findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
     }
 
+    // This method initializes the ingredients in the fragment
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

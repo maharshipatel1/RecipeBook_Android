@@ -18,14 +18,13 @@ import com.application.recipebook.R;
 
 import java.util.List;
 
-//import com.google.android.gms.ads.AdRequest;
-//import com.google.android.gms.ads.AdView;
-
+/**
+ * The inventory fragment for implementing the inventory UI
+ */
 public class inventoryFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private List<Ingredient> ingredients;
     private RecyclerView rvIngredients;
-    //private AdView mAdView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,12 +36,9 @@ public class inventoryFragment extends Fragment implements AdapterView.OnItemSel
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        /*mAdView = getView().findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
     }
 
+    // This method initializes the ingredients list and creates a new adapter for it
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -55,7 +51,7 @@ public class inventoryFragment extends Fragment implements AdapterView.OnItemSel
         rvIngredients.setLayoutManager(new LinearLayoutManager(this.getContext()));
     }
 
-
+    // This method implements the selecting and deselecting of an ingredient
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         boolean checked = ((CheckBox) view).isChecked();
