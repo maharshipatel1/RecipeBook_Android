@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.application.recipebook.Ingredient;
@@ -63,14 +64,17 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(IngredientsAdapter.ViewHolder holder, int position) {
+
+        int pos = holder.getAdapterPosition();
+
         // Get the data model based on position
-        String tempIngredient = ingredients.get(position).getName();
+        String tempIngredient = ingredients.get(pos).getName();
 
         // Set item views based on your views and data model
         TextView textView = holder.nameTextView;
         textView.setText(tempIngredient);
         CheckBox checkBox = holder.checkBox;
-        if(ingredients.get(position).getValue() == true){
+        if(ingredients.get(pos).getValue() == true){
             checkBox.setChecked(true);
         }
         else{
@@ -82,10 +86,10 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    ingredients.get(position).setValue(true);
+                    ingredients.get(pos).setValue(true);
                 }
                 else {
-                    ingredients.get(position).setValue(false);
+                    ingredients.get(pos).setValue(false);
                 }
             }
 

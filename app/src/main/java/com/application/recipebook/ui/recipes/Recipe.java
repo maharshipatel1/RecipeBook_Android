@@ -5,42 +5,53 @@ import java.io.Serializable;
 public class Recipe implements Serializable {
 
     private String name;
-    private String recipe;
-    private String ingredients;
+    private String publisher;
+    private String url;
+    private int id;
 
     private Recipe(){
-        ingredients = "";
         name = "";
-        recipe = "";
+        publisher = "";
+        url = "";
+        id = 0;
     }
 
-    public Recipe(String name, String recipe, String ingredients){
-        this.ingredients = ingredients;
+    public Recipe(String name, String publisher, String url, int id){
         this.name = name;
-        this.recipe = recipe;
-    }
-
-    public String getIngredients(){
-        return ingredients;
+        this.publisher = publisher;
+        this.url = url;
+        this.id = id;
     }
 
     public String getName(){
         return name;
     }
 
-    public String getRecipe(){
-        return recipe;
+    public String getPublisher(){
+        return publisher;
     }
 
-    public void setIngredients(String ingredients){
-        this.ingredients = ingredients;
+    public String getUrl(){
+        return url;
     }
 
-    public void setName(String name) {
+    public int getId(){
+        return id;
+    }
+
+    public void setName(String name){
         this.name = name;
     }
 
-    public void setRecipe(String recipe) {
-        this.recipe = recipe;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 }

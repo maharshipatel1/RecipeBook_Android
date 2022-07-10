@@ -40,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*MobileAds.initialize(this, new OnInitializationCompleteListener() {
+        /*
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
-        });*/
+        });
+        */
 
         ingredientList = new Ingredients();
 

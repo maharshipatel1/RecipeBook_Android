@@ -70,15 +70,18 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // Get the data model based on position
-        String tempRecipe = recipes.get(position).getName();
+
+        int pos = holder.getAdapterPosition();
+
+        // Get the recipe object
+        Recipe recipe = recipes.get(pos);
 
         // Set item views based on your views and data model
         TextView textView = holder.nameTextView;
-        textView.setText(tempRecipe);
+        textView.setText(recipe.getName());
 
         // Reference to an image file in Cloud Storage
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images/" + tempRecipe + ".jpg");
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images/" + recipe.getId()+ ".jpeg");
 
         // ImageView in your Activity
         ImageView imageView = holder.image;
@@ -92,14 +95,12 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RecipeActivity.class);
-                intent.putExtra("RECIPE", recipes.get(position));
+                intent.putExtra("URL", recipe.getUrl());
                 context.startActivity(intent);
             }
         });
 
     }
-
-
 
     @Override
     public int getItemCount() {
